@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Hello {{Auth::user()->email}}
-                  <a href="/home/fileLeave"><button class="btn btn-primary btn-md">File Leave</button></a>
+                  <a href="/home/fileLeave"><button class="btn btn-primary btn-md" style="float: right">File Leave</button></a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
@@ -17,6 +17,7 @@
                     <table class="table">
                       <thead>
                         <tr>
+                          <th>#</th>
                           <th>Subject</th>
                           <th>Reason</th>
                           <th>Status</th>
@@ -26,9 +27,20 @@
                       <tbody>
                         @foreach ($leaves as $key => $leave)
                             <tr>
+                              <td>{{ $key+1 }}</td>
                               <td>{{ $leave->subject }}</td>
                               <td>{{ $leave->leave_reason }}</td>
-                              <td>{{ $leave->isAccepted }}</td>
+
+
+                              <td> 
+                                @if($leave->isAccepted == 0)
+                                  Pending
+                                @else 
+                                  Accepted
+                                @endif
+                              </td>
+
+
                               <td>{{ $leave->created_at }}</td>
                             <tr>
                         @endforeach
