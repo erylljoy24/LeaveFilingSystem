@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -24,3 +24,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/fileLeave', 'HomeController@showForm');
 Route::post('/home/fileLeave', 'HomeController@storeLeave');
+Route::delete('/home/cancel/{leave_id}', 'HomeController@deleteLeave');
+
+Route::group(['prefix' => 'admin'], function(){
+  Route::get('/', 'AdminLoginController@showLogin');
+  Route::post('/login', 'AdminLoginController@login');
+  Route::get('/home', 'AdminController@home');
+  Route::put('/approve/{id}', 'AdminController@approveRequest');
+  Route::put('/reject/{id}', 'AdminController@rejectRequest');
+  Route::get('/view/{id}', 'AdminController@viewRequest');
+});

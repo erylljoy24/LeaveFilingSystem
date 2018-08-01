@@ -22,6 +22,8 @@
                           <th>Reason</th>
                           <th>Status</th>
                           <th>Posted</th>
+                          <th>      </th>
+                          <th>      </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -29,19 +31,41 @@
                             <tr>
                               <td>{{ $key+1 }}</td>
                               <td>{{ $leave->subject }}</td>
-                              <td>{{ $leave->leave_reason }}</td>
-
-
-                              <td> 
+                              <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:1px;">
+                                {{ $leave->leave_reason }}
+                              </td>
+                              <td>
                                 @if($leave->isAccepted == 0)
                                   Pending
-                                @else 
+                                @elseif($leave->isAccepted == 3)
+                                  Rejected
+                                @else
                                   Accepted
                                 @endif
                               </td>
-
-
                               <td>{{ $leave->created_at }}</td>
+
+                              @if($leave->isAccepted == 0)
+                                <td style="padding-right:0">
+                                  <a href="#"> <button class="btn primary">Edit</button></a>
+                                  {{-- <a href="/home/cancel/{{ $leave->id }}"> <button class="btn alert-danger">Cancel</button></a> --}}
+                                </td>
+                                <td style="padding-left:0">
+                                  <form action="{{url('/home/cancel', [$leave->id])}}" method="POST">
+                                     {{method_field('DELETE')}}
+                                     {{ csrf_field() }}
+                                     <input type="submit" class="btn btn-danger" value="Cancel"/>
+                                  </form>
+                                </td>
+                              @else
+                                <td style="padding-right:0">
+
+                                </td>
+                                <td style="padding-left:0">
+
+                                </td>
+                              @endif
+
                             <tr>
                         @endforeach
                       </tbody>

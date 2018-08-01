@@ -50,4 +50,11 @@ class HomeController extends Controller
       $leave->save();
       return redirect('home');
     }
+
+    public function deleteLeave($id)
+    {
+      // dd($id);
+      \DB::table('leaves')->delete($id);
+      return redirect('home');
+    }
 }
