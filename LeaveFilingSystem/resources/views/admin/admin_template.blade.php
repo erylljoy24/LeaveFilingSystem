@@ -33,13 +33,15 @@
         <!-- Icon Cards-->
         <div class="row">
 
-          <div class="col-xl-6 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
+          <div class="col-xl-4 col-sm-6 mb-3">
+            <div class="card text-white bg-primary o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-list"></i>
                 </div>
-                <div class="mr-5">11 New Tasks!</div>
+                <div class="mr-5">
+                  {{ count($list2) }} Accepted Request
+                </div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
@@ -50,13 +52,34 @@
             </div>
           </div>
 
-          <div class="col-xl-6 col-sm-6 mb-3">
+          <div class="col-xl-4 col-sm-6 mb-3">
+            <div class="card text-white bg-warning o-hidden h-100">
+              <div class="card-body">
+                <div class="card-body-icon">
+                  <i class="fas fa-fw fa-list"></i>
+                </div>
+                <div class="mr-5">
+                  {{ count($list1) }} Pending Request
+                </div>
+              </div>
+              <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">View Details</span>
+                <span class="float-right">
+                  <i class="fas fa-angle-right"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-sm-6 mb-3">
             <div class="card text-white bg-danger o-hidden h-100">
               <div class="card-body">
                 <div class="card-body-icon">
                   <i class="fas fa-fw fa-life-ring"></i>
                 </div>
-                <div class="mr-5">13 New Tickets!</div>
+                <div class="mr-5">
+                  {{ count($list3) }} Rejected Request
+                </div>
               </div>
               <a class="card-footer text-white clearfix small z-1" href="#">
                 <span class="float-left">View Details</span>
@@ -71,29 +94,12 @@
 
 
       </div>
-      <!-- /.container-fluid -->
-
-      <!-- Sticky Footer -->
-     <!--  <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2018</span>
-          </div>
-        </div>
-      </footer> -->
-
     </div>
-    <!-- /.content-wrapper -->
-
   </div>
-  <!-- /#wrapper -->
-
-  <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Admin;
+use App\Leave;
+
 class AdminTablesController extends Controller
 {
 
@@ -20,6 +23,8 @@ class AdminTablesController extends Controller
                   'users.name',
                   'leaves.id',
                   'subject',
+                  'leave_reason',
+                  'leaves.created_at',
                   'isAccepted'
                 ));
       return view('admin.request_table', compact('leave'));
