@@ -27,10 +27,17 @@ Route::post('/home/fileLeave', 'HomeController@storeLeave');
 Route::delete('/home/cancel/{leave_id}', 'HomeController@deleteLeave');
 
 Route::group(['prefix' => 'admin'], function(){
+
+  // AdminLoginController controller
   Route::get('/', 'AdminLoginController@showLogin');
   Route::post('/login', 'AdminLoginController@login');
+
+  // AdminController Controller
   Route::get('/home', 'AdminController@home');
-  Route::put('/approve/{id}', 'AdminController@approveRequest');
-  Route::put('/reject/{id}', 'AdminController@rejectRequest');
-  Route::get('/view/{id}', 'AdminController@viewRequest');
+
+  // AdminTablesController controller
+  Route::put('/approve/{id}', 'AdminTablesController@approveRequest');
+  Route::put('/reject/{id}', 'AdminTablesController@rejectRequest');
+  Route::get('/view/{id}', 'AdminTablesController@viewRequest');
+  Route::get('/table', 'AdminTablesController@displayTable');
 });

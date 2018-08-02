@@ -22,7 +22,7 @@
                           <th>Reason</th>
                           <th>Status</th>
                           <th>Posted</th>
-                          <th>      </th>
+                          <th>Actions</th>
                           <th>      </th>
                         </tr>
                       </thead>
