@@ -34,6 +34,6 @@ class AdminController extends Controller
 
       }
 
-      return view('admin.admin_template', compact('list1', 'list2', 'list3'));
+      return view('admin.admin-template', compact('list1', 'list2', 'list3'));
     }
 }

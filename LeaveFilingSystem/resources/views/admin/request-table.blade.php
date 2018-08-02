@@ -1,6 +1,6 @@
-@extends('admin.layout.admin_header')
+@extends('admin.layout.admin-header')
 
-@section('admin_section')
+@section('admin-section')
 
   <div id="wrapper">
 

@@ -7,10 +7,14 @@ use Auth;
 
 class AdminLoginController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware('guest:admin');
+    }
+
     public function showLogin()
     {
-      return view('admin.admin_login');
+      return view('admin.admin-login');
     }
 
     public function login(Request $request)
@@ -26,6 +30,6 @@ class AdminLoginController extends Controller
     		return redirect()->intended('/admin/home');
     	}
 
-    	return redirect()->back();
+    	return redirect('/admin');
     }
 }

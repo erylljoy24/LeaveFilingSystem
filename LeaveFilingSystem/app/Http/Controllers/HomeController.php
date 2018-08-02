@@ -35,7 +35,7 @@ class HomeController extends Controller
 
     public function showForm()
     {
-      return view('file_leave');
+      return view('file-leave');
     }
 
     public function storeLeave(Request $request)

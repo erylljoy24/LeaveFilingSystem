@@ -27,7 +27,7 @@ class AdminTablesController extends Controller
                   'leaves.created_at',
                   'isAccepted'
                 ));
-      return view('admin.request_table', compact('leave'));
+      return view('admin.request-table', compact('leave'));
     }
 
     public function approveRequest($id)
@@ -49,7 +49,7 @@ class AdminTablesController extends Controller
     public function viewRequest($id)
     {
       $leave = Leave::find($id);
-      return view('admin.admin_view_request', compact('leave'));
+      return view('admin.admin-view-request', compact('leave'));
     }
 
     public function searchByAjax()

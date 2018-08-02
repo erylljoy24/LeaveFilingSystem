@@ -58,7 +58,7 @@
   </nav>
 
   <main>
-    @yield('admin_section')
+    @yield('admin-section')
   </main>
 
 
