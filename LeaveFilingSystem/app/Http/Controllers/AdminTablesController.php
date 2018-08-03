@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Admin;
 use App\Leave;
+use App\Job;
 
 class AdminTablesController extends Controller
 {
@@ -27,7 +28,25 @@ class AdminTablesController extends Controller
                   'leaves.created_at',
                   'isAccepted'
                 ));
-      return view('admin.request-table', compact('leave'));
+      $list1 = array();
+      $leaveAll = Leave::all();
+
+      foreach ($leaveAll as $key => $value)
+      {
+        if ($value->isAccepted == 0)
+        {
+          $list1[] = $value;
+        }
+      }
+
+      $jobs = Job::all();
+
+      return view('admin.request-table', compact('leave', 'list1', 'jobs'));
+    }
+
+    public function sortBy(Request $request)
+    {
+      dd($request->get('job_id'));
     }
 
     public function approveRequest($id)
@@ -49,7 +68,15 @@ class AdminTablesController extends Controller
     public function viewRequest($id)
     {
       $leave = Leave::find($id);
-      return view('admin.admin-view-request', compact('leave'));
+      $leaveAll = Leave::all();
+
+      foreach ($leaveAll as $key => $value) {
+        if ($value->isAccepted == 0) {
+          $list1[] = $value;
+        }
+
+      }
+      return view('admin.admin-view-request', compact('leave', 'list1'));
     }
 
     public function searchByAjax()

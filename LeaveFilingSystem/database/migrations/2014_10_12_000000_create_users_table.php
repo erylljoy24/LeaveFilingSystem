@@ -19,6 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('leave_limit')->nullable();
+            $table->integer('job_id')->nullable()->unsigned();
+            $table->foreign('job_id')->references('id')->on('jobs');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -40,4 +40,5 @@ Route::group(['prefix' => 'admin'], function(){
   Route::put('/reject/{id}', 'AdminTablesController@rejectRequest');
   Route::get('/view/{id}', 'AdminTablesController@viewRequest');
   Route::get('/table', 'AdminTablesController@displayTable');
+  Route::get('/sortby', 'AdminTablesController@sortBy');
 });

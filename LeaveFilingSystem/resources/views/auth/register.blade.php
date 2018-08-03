@@ -40,6 +40,19 @@
                         </div>
 
                         <div class="form-group row">
+                          <label for="job" class="col-md-4 col-form-label text-md-right">Job Title</label>
+
+                          <div class="col-md-6">
+                            <select name="job_id" class="form-control">
+                                @foreach($jobs as $job)
+                                  <option value="{{ $job->id }}">{{ $job->job_title }}</option>
+                                @endforeach
+                            </select>
+                          </div>
+                        </div>
+
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -52,7 +65,6 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 

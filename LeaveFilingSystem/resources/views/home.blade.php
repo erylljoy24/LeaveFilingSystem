@@ -48,10 +48,7 @@
                               @if($leave->isAccepted == 0)
                                 <td style="padding-right:0">
                                   <a href="#"> <button class="btn primary">Edit</button></a>
-                                  {{-- <a href="/home/cancel/{{ $leave->id }}"> <button class="btn alert-danger">Cancel</button></a> --}}
-                                </td>
-                                <td style="padding-left:0">
-                                  <form action="{{url('/home/cancel', [$leave->id])}}" method="POST">
+                                  <form id="form-inline" action="{{url('/home/cancel', [$leave->id])}}" method="POST">
                                      {{method_field('DELETE')}}
                                      {{ csrf_field() }}
                                      <input type="submit" class="btn btn-danger" value="Cancel"/>
