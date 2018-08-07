@@ -34,17 +34,20 @@
             <!-- DataTables Example -->
             <div class="card mb-3">
               <div class="card-header">
-                <div class="form-group row" style="float:right; margin-bottom: 0px;margin-right:1px">
-                  <label for="job" class="col-md-4 col-form-label text-md-right">Sort by: </label>
-                  <div class="col-md-6">
-                    <select name="job_id" id="job_id" class="form-control" style="width:auto" >
-                      <option value="0">All</option>
-                      @foreach($jobs as $job)
-                        <option value="{{ $job->id }}">{{ $job->job_title }}</option>
-                      @endforeach
-                    </select>
+                <form method="POST" action="/admin/sortby">
+                  {{ csrf_field() }}
+                  <div class="form-group row" style="float:right; margin-bottom: 0px;margin-right:1px">
+                    <label for="job" class="col-md-4 col-form-label text-md-right">Sort by: </label>
+                    <div class="col-md-6">
+                      <select name="job_id" class="form-control" style="width:auto" onchange='this.form.submit()'>
+                        <option value="0">All</option>
+                        @foreach($jobs as $job)
+                          <option value="{{ $job->id }}">{{ $job->job_title }}</option>
+                        @endforeach
+                      </select>
+                    </div>
                   </div>
-                </div>
+                </form>
               </div>
               <div class="card-body">
                 <div class="table-responsive">

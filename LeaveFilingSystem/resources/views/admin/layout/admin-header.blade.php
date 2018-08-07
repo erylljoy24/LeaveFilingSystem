@@ -20,7 +20,7 @@
   <link href="{{ asset('css/sb-admin.css') }}" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <script src="{{ asset('js/app.js') }}"></script>
-  
+
   <!-- Demo scripts for this page-->
   <script src="{{ asset('js/datatables-demo.js') }}"></script>
 
@@ -70,22 +70,23 @@
   </main>
 
 
-  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+  {{-- <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+  <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script> --}}
   <script src="{{ asset('js/jquery.dataTables.js') }}"></script>
   <script src="{{ asset('js/dataTables.bootstrap4.js') }}"></script>
+  <script src="{{ asset('js/sb-admin.js') }}"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="{{ asset('js/sb-admin.min.js') }}"></script>
 
 
-  <script src="js/demo/chart-area-demo.js"></script>
+  {{-- <script src="js/demo/chart-area-demo.js"></script> --}}
 
 </body>
 </html>

@@ -37,4 +37,21 @@
     event.preventDefault();
   });
 
+  $(function(){
+    $('#job_id').change(function(e){
+      e.preventDefault();
+      console.log($(this).val());
+
+      $.ajax({
+        url: '/admin/sortby',
+        method: 'POST',
+        dataType: 'JSON',
+        data: +$(this).val(),
+        success:function(data){
+            console.log(data);
+        }
+      });
+    });
+  });
+
 })(jQuery); // End of use strict

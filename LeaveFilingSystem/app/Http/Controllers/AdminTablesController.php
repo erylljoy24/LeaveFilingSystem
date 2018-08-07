@@ -46,7 +46,31 @@ class AdminTablesController extends Controller
 
     public function sortBy(Request $request)
     {
-      dd($request->get('job_id'));
+      $leave = \DB::table('leaves')
+                ->join('users', 'leaves.user_id', '=', 'users.id')
+                ->where('isAccepted', '=', 0)
+                ->orderBy('users.id')->get(array(
+                  'users.name',
+                  'leaves.id',
+                  'subject',
+                  'leave_reason',
+                  'leaves.created_at',
+                  'isAccepted'
+                ));
+      $list1 = array();
+      $leaveAll = Leave::all();
+
+      foreach ($leaveAll as $key => $value)
+      {
+        if ($value->isAccepted == 0)
+        {
+          $list1[] = $value;
+        }
+      }
+
+      $jobs = Job::all();
+
+      return view('admin.request-table', compact('leave', 'list1', 'jobs'));
     }
 
     public function approveRequest($id)
