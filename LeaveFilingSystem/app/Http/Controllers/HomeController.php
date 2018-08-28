@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Leave;
 use Auth;
+use App\Notifications\LeavesFilled;
 
 class HomeController extends Controller
 {
@@ -48,6 +49,9 @@ class HomeController extends Controller
       $leave->leave_reason = $request->get('leave_reason');
       // dd($leave);
       $leave->save();
+
+      $user->notify(new LeavesFilled($leave));
+
       return redirect('home');
     }
 

@@ -21,6 +21,11 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <script src="{{ asset('js/app.js') }}"></script>
 
+  <script>
+      window.Laravel = <?php echo json_encode([
+          'csrfToken' => csrf_token(),
+      ]); ?>
+  </script>
   <!-- Demo scripts for this page-->
   <script src="{{ asset('js/datatables-demo.js') }}"></script>
 
@@ -37,14 +42,26 @@
     </button>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="notifications" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
           <span class="badge badge-danger">{{ count($list1) }}</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-        </div>
+        <ul class="dropdown-menu" aria-labelledby="notificationsMenu" id="notificationsMenu">
+            <li class="dropdown-header">No notifications</li>
+        </ul>
       </li>
+
+
+      {{-- <li class="dropdown">
+          <a class="dropdown-toggle" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+            <span class="badge badge-danger"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="notificationsMenu" id="notificationsMenu">
+              <li class="dropdown-header">No notifications</li>
+          </ul>
+      </li> --}}
+
       <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::user()->name }} <span class="caret"></span>

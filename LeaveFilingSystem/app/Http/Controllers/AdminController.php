@@ -36,4 +36,9 @@ class AdminController extends Controller
 
       return view('admin.admin-template', compact('list1', 'list2', 'list3'));
     }
+
+    public function notifications()
+    {
+      return auth()->user()->unreadNotifications()->limit(5)->get()->toArray();
+    }
 }

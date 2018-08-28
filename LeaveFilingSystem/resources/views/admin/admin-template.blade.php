@@ -43,7 +43,12 @@
                   {{ count($list2) }} Accepted Request
                 </div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="/admin/table/sort-status/{{ $list2[0]->isAccepted }}">
+              @if (isset($list2[0]))
+                <a class="card-footer text-white clearfix small z-1" href="/admin/table/sort-status/{{ $list2[0]->isAccepted }}">
+              @else
+                <a class="card-footer text-white clearfix small z-1" href="#">
+              @endif
+
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -62,7 +67,11 @@
                   {{ count($list1) }} Pending Request
                 </div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="/admin/table/sort-status/{{ $list1[0]->isAccepted }}">
+              @if (isset($list1[0]))
+                <a class="card-footer text-white clearfix small z-1" href="/admin/table/sort-status/{{ $list1[0]->isAccepted }}">
+              @else
+                <a class="card-footer text-white clearfix small z-1" href="#">
+              @endif
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>
@@ -81,7 +90,12 @@
                   {{ count($list3) }} Rejected Request
                 </div>
               </div>
-              <a class="card-footer text-white clearfix small z-1" href="/admin/table/sort-status/{{ $list3[0]->isAccepted }}">
+              @if (isset($list3[0]))
+                <a class="card-footer text-white clearfix small z-1" href="/admin/table/sort-status/{{ $list3[0]->isAccepted }}">
+              @else
+                <a class="card-footer text-white clearfix small z-1" href="#">
+              @endif
+
                 <span class="float-left">View Details</span>
                 <span class="float-right">
                   <i class="fas fa-angle-right"></i>

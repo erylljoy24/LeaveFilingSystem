@@ -43,3 +43,8 @@ Route::group(['prefix' => 'admin'], function(){
   Route::post('/sortby', 'AdminTablesController@sortBy');
   Route::get('/table/sort-status/{status}', 'AdminTablesSortingController@sortByStatus');
 });
+
+Route::group([ 'middleware' => 'auth' ], function () {
+    // ...
+    Route::get('/notifications', 'AdminController@notifications');
+});
